@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993789991122030358}
   - component: {fileID: 4993789991122030353}
+  - component: {fileID: 8406919001953693939}
   m_Layer: 0
   m_Name: Ronce
   m_TagString: Untagged
@@ -84,3 +85,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8406919001953693939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993789991122030352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e5810fb3d8916499d387c0209c7a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  timeToAttack: 2
