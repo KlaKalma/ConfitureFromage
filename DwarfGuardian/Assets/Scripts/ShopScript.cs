@@ -5,10 +5,10 @@ using UnityEngine;
 public class ShopScript : MonoBehaviour
 {
     // include gride manager game object in the script
-    public GameObject GameManager;
-    public GameObject plantManager;
+    public GameManager gameManager;
+    public PlantManager plantManager;
     // include camera game object in the script
-    public Camera Camera;
+    public Camera _camera;
     private int number_of_items;
     private float angle;
     // Start is called before the first frame update
@@ -22,15 +22,17 @@ public class ShopScript : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         in_shop = false;
         //get prefabs count for plant manager gameobject
-        number_of_items = plantManager.GetComponent<PlantManager>().plantPrefabs.Count;
+        number_of_items = plantManager.plantPrefabs.Count;
         angle = 360/number_of_items;
 
         _prices = new Dictionary<int, int>();
+        Debug.Log("Number of items: " + number_of_items);
         for(int i = 0; i < number_of_items; i++)
         {   
-            Debug.Log(plantManager.GetComponent<PlantManager>().Get_price(i));
-            _prices[i] = plantManager.GetComponent<PlantManager>().Get_price(i);
-            Debug.Log(_prices[i]); 
+            Debug.Log(i);
+            // Debug.Log(plantManager.Get_price(i));
+            _prices[i] = plantManager.Get_price(i);
+            // Debug.Log(_prices[i]); 
         } 
     }
 
@@ -40,7 +42,7 @@ public class ShopScript : MonoBehaviour
         // if left mouse button is clicked
         if(Input.GetMouseButtonDown(0))
         {
-            transform.position = Camera.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = _camera.ScreenToWorldPoint(Input.mousePosition);
             // if sprite renderer inactive
             if (GetComponent<SpriteRenderer>().enabled == false)
             {   
@@ -56,13 +58,13 @@ public class ShopScript : MonoBehaviour
             {
                 if(in_shop)
                 {
-                    int thunes = GameManager.GetComponent<GameManager>().thunes;
+                    int thunes = gameManager.thunes;
                     int item = Get_item();
-                    Debug.Log(item);
+                    // Debug.Log(item);
                     if (_prices.TryGetValue(item, out var price) && thunes >= _prices[item])
                     {
-                        var spawnedPlant = Instantiate(plantManager.GetComponent<PlantManager>().plantPrefabs[item], tile_pos, Quaternion.identity);
-                        GameManager.GetComponent<GameManager>().thunes -= price;
+                        GameObject spawnedPlant = plantManager.SpawnPlant(item);
+                        gameManager.GetComponent<GameManager>().thunes -= price;
                     }
                     else
                     {

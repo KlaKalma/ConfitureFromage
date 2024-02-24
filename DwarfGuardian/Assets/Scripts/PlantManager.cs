@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil.Cil;
+
 // using System.Numerics;
 using UnityEngine;
 
@@ -40,9 +42,11 @@ public class PlantManager : MonoBehaviour
         
     }
 
-    void SpawnPlant(){
+    public GameObject SpawnPlant(int randomPlant = -1){
         // spawn a plant randomly between all the plants in the list
-        int randomPlant = Random.Range(0, plantPrefabs.Count);
+        if(randomPlant == -1)
+            randomPlant = Random.Range(0, plantPrefabs.Count);
+        // randomPlant = Random.Range(0, plantPrefabs.Count);
 
         // position of the plant, it has to be an int
         Vector3 spawnPosition = new Vector3(Random.Range(-_width / 2, _width / 2), Random.Range(-_height / 2, _height / 2), 0);
@@ -60,13 +64,15 @@ public class PlantManager : MonoBehaviour
 
         // make the parent of the plant the field
         spawnedPlant.transform.parent = transform;
+
+        return spawnedPlant;
         
     }
 
     public int Get_price(int item)
     {
         // return the price of the plantprefab[item]
-        return plantPrefabs[item].GetComponent<Plant>().price;
+        return 10;
 
     }
 
