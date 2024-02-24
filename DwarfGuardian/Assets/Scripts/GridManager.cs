@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
-    [SerializeField] private int _width, _height;
+    [SerializeField] public int _width, _height;
     public float _tileSize;
  
     [SerializeField] private Tile _tilePrefab;
