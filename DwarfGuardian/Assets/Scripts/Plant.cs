@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IPrice
-{
-    int price { get; set; }
-}
 public class Plant : MonoBehaviour
 {
 

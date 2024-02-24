@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Mono.Cecil.Cil;
+// using Mono.Cecil.Cil;
 
 // using System.Numerics;
 using UnityEngine;
@@ -72,7 +72,10 @@ public class PlantManager : MonoBehaviour
     public int Get_price(int item)
     {
         // return the price of the plantprefab[item]
-        return plantPrefabs[item].GetComponent<IPrice>().price;
+        // Debug.Log("Price: " + plantPrefabs[item].GetComponent<IPrice>().price);
+        int price = plantPrefabs[item].GetComponent<IPrice>().price;
+        Debug.Log("Price: " + price);
+        return price;
 
     }
 

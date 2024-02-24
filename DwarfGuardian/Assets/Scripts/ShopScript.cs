@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public interface IPrice
+{
+    int price { get; set; }
+}
 public class ShopScript : MonoBehaviour
 {
     // include gride manager game object in the script
@@ -30,7 +35,7 @@ public class ShopScript : MonoBehaviour
         // iterate over the items of the plant manager and get the price of each item
         for(int i = 0; i < number_of_items; i++)
         {   
-            Debug.Log(i);
+            // Debug.Log(i);
             // Debug.Log(plantManager.Get_price(i));
             _prices[i] = plantManager.Get_price(i);
             Debug.Log(_prices[i]); 
