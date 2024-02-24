@@ -43,6 +43,49 @@ public class ShopScript : MonoBehaviour
             // Debug.Log(plantManager.Get_price(i));
             _prices[i] = plantManager.Get_price(i);
             // Debug.Log(_prices[i]); 
+
+            float phase = 45;
+
+            // setup the price of the item 
+            float x = Mathf.Cos(i * angle * Mathf.Deg2Rad + phase);
+            float y = Mathf.Sin(i * angle * Mathf.Deg2Rad + phase);
+            Vector3 pos = new Vector3(x, y, 0);
+            pos = pos * 1;
+            pos = pos + new Vector3(0, 0, -3);
+            GameObject price = new GameObject();
+
+            price.transform.position = pos;
+            price.AddComponent<TextMesh>();
+            price.GetComponent<TextMesh>().text = _prices[i].ToString();
+            price.GetComponent<TextMesh>().fontSize = 100;
+            price.GetComponent<TextMesh>().color = Color.black;
+            price.GetComponent<TextMesh>().characterSize = 0.1f;
+            price.GetComponent<TextMesh>().alignment = TextAlignment.Center;
+            price.GetComponent<TextMesh>().anchor = TextAnchor.MiddleCenter;
+            price.GetComponent<TextMesh>().fontStyle = FontStyle.Bold;
+            price.transform.parent = transform;
+
+            // get the sprite renderer of the plant prefab
+            SpriteRenderer sr = plantManager.plantPrefabs[i].GetComponent<SpriteRenderer>();
+            // get the sprite of the plant prefab
+            Sprite sprite = sr.sprite;
+            // create a new game object
+            GameObject go = new GameObject();
+            // add a sprite renderer to the game object
+            go.AddComponent<SpriteRenderer>();
+            // get the sprite renderer of the game object
+            SpriteRenderer go_sr = go.GetComponent<SpriteRenderer>();
+            // set the sprite of the game object to the sprite of the plant prefab
+            go_sr.sprite = sprite;
+            // set the position of the game object to the position of the plant prefab
+            go.transform.position = pos * 2;
+            // set the scale of the game object to the scale of the plant prefab
+            go.transform.localScale = 0.6f * Vector3.one;
+            // set the parent of the game object to the shop game object
+            go.transform.parent = transform;
+
+
+
         } 
     }
 
@@ -65,6 +108,7 @@ public class ShopScript : MonoBehaviour
                 transform.position = new Vector3(tile_pos_x, tile_pos_y, -1);
                 GetComponent<SpriteRenderer>().enabled = true;
                 GetComponent<Collider2D>().enabled = true;
+
             }
             else
             {

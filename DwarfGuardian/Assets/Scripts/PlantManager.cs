@@ -45,10 +45,15 @@ public class PlantManager : MonoBehaviour
     public GameObject SpawnPlant(int randomPlant = -1, Vector3 spawnPosition = new Vector3()){
         // spawn a plant randomly between all the plants in the list
         if(randomPlant == -1 )
+        {
             randomPlant = Random.Range(0, plantPrefabs.Count);
+            Debug.Log("Random plant: " + randomPlant);
+        }
         else if(randomPlant >= plantPrefabs.Count)
+        {
             Debug.Log("Plant index out of range " + randomPlant + " > " + plantPrefabs.Count);
             randomPlant = Random.Range(0, plantPrefabs.Count);
+        }
         // randomPlant = Random.Range(0, plantPrefabs.Count);
 
         // position of the plant, it has to be an int
