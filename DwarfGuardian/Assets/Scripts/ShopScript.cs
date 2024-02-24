@@ -10,6 +10,7 @@ public interface IPrice
 
 public class ShopScript : MonoBehaviour
 {
+    public bool _isAccessible;
     // include gride manager game object in the script
     public GameManager gameManager;
     public PlantManager plantManager;
@@ -24,6 +25,7 @@ public class ShopScript : MonoBehaviour
     private Dictionary<int, int> _prices;
     void Start()
     {
+        _isAccessible = true;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         in_shop = false;
@@ -47,7 +49,7 @@ public class ShopScript : MonoBehaviour
     void Update()
     {
         // if left mouse button is clicked
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && _isAccessible)
         {
             transform.position = _camera.ScreenToWorldPoint(Input.mousePosition);
 

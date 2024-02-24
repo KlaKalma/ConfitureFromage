@@ -18,6 +18,7 @@ namespace GameState {
         private int _day = 1;
         private bool _isDayTime = true;
         [SerializeField] private PlayerSpawner _playerSpawner;
+        [SerializeField] private ShopScript _shop;
 
         private void Start()
         {
@@ -37,6 +38,7 @@ namespace GameState {
                 Debug.Log("Night");
 
                 // Spawn Enemies
+                _shop._isAccessible = false;
                 _playerSpawner.SpawnPlayers();
 
                 _isDayTime = !_isDayTime;
@@ -48,6 +50,7 @@ namespace GameState {
 
                 // Switch them Enemies
                 _playerSpawner.Runaway();
+                _shop._isAccessible = true;
 
                 _isDayTime = !_isDayTime;
                 _day++;
