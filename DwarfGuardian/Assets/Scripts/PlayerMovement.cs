@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Speed at which the player moves
-    public float MaxX = 2;
+    public float MaxX = 15;
 
     Rigidbody2D rb; // Reference to the player's Rigidbody component
 
@@ -32,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
         // if the player is further then the limit MaxX, then set the player position to the - limit
         if(transform.position.x > MaxX)
         {
-            transform.position = new Vector3(-MaxX, transform.position.y, transform.position.z);
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
         }
-        else if(transform.position.x < -MaxX)
+        else if(transform.position.x < 0)
         {
             transform.position = new Vector3(MaxX, transform.position.y, transform.position.z);
         }

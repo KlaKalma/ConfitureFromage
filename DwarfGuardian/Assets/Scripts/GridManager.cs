@@ -16,10 +16,18 @@ public class GridManager : MonoBehaviour {
     }
  
     void GenerateGrid() {
+        GameObject tileParent = GameObject.Find("Tiles");
+        if (tileParent == null)
+        {
+            tileParent = new GameObject("Tiles");
+        }
+
         //_tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < _width; x++) {
             for (int y = 0; y < _height; y++) {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
+                
+
+                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity, tileParent.transform);
                 spawnedTile.name = $"Tile {x} {y}";
  
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
