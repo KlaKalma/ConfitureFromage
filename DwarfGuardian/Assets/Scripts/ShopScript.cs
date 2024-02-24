@@ -58,7 +58,10 @@ public class ShopScript : MonoBehaviour
             price.AddComponent<TextMesh>();
             price.GetComponent<TextMesh>().text = _prices[i].ToString();
             price.GetComponent<TextMesh>().fontSize = 100;
-            price.GetComponent<TextMesh>().color = Color.black;
+            // if(_prices[i] > gameManager.Money)
+            //     price.GetComponent<TextMesh>().color = Color.red;
+            // else
+            //     price.GetComponent<TextMesh>().color = Color.green;
             price.GetComponent<TextMesh>().characterSize = 0.1f;
             price.GetComponent<TextMesh>().alignment = TextAlignment.Center;
             price.GetComponent<TextMesh>().anchor = TextAnchor.MiddleCenter;
@@ -83,8 +86,6 @@ public class ShopScript : MonoBehaviour
             go.transform.localScale = 0.6f * Vector3.one;
             // set the parent of the game object to the shop game object
             go.transform.parent = transform;
-
-
 
         } 
     }
