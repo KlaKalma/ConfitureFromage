@@ -74,6 +74,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # ProjectVersion
-DwarfGuardian/ProjectSettings/ProjectVersion.txt
+/ProjectSettings/ProjectVersion.txt
 **/ProjectVersion.txt
-DwarfGuardian/ProjectSettings/boot.config
+/ProjectSettings/boot.config
