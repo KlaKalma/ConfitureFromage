@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GnomeInsecte : Gnome
 {
-    void Start(){
+    protected override void Start(){
         // do the initialisation of THe gnome class inherited
-        base.Initiate();
+        base.Start();
     }
 
-    void Update()
+    protected override void Update()
     {
-        base.Move();
+        base.Update();
     }
 }
