@@ -7,6 +7,7 @@ public interface IPrice
 {
     int price { get; set; }
 }
+
 public class ShopScript : MonoBehaviour
 {
     public bool _isAccessible;
@@ -66,17 +67,17 @@ public class ShopScript : MonoBehaviour
             {
                 if(in_shop)
                 {
-                    int thunes = gameManager.thunes;
+                    int Money = gameManager.Money;
                     int item = Get_item();
                     // Debug.Log(item);
-                    if (_prices.TryGetValue(item, out var price) && thunes >= _prices[item])
+                    if (_prices.TryGetValue(item, out var price) && Money >= _prices[item])
                     {
                         GameObject spawnedPlant = plantManager.SpawnPlant(item);
-                        gameManager.GetComponent<GameManager>().thunes -= price;
+                        gameManager.addMoney(-price);
                     }
-                    else if (thunes < _prices[item])
+                    else if (Money < _prices[item])
                     {
-                        Debug.Log("Not enough money");
+                        Debug.Log("Not enough money"); 
                     } else {
                         Debug.Log("Object not found");
                     }
