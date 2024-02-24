@@ -6,7 +6,7 @@ public class PlayerSpawner : MonoBehaviour
 {
 
     // grid manager reference
-    public GridManager gridManager;
+    public GameManager gridManager;
     // List of gnomes
     public List<GameObject> gnomes = new List<GameObject>();
 

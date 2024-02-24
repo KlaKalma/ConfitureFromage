@@ -10,7 +10,7 @@ public class PlantManager : MonoBehaviour
     public List<GameObject> plantPrefabs = new List<GameObject>();
 
     // grid manager reference
-    public GridManager gridManager;
+    public GameManager gridManager;
 
     // list of all the plants not modifiable
     [System.NonSerialized]
