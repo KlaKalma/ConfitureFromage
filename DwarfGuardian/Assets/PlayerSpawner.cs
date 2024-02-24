@@ -9,6 +9,10 @@ public class PlayerSpawner : MonoBehaviour
     public GridManager gridManager;
     public GameObject gnomePrefab;
 
+    // list of all the players not modifiable
+    [System.NonSerialized]
+    public List<GameObject> players = new List<GameObject>();
+
     private float _width, _height;
 
 
@@ -59,6 +63,9 @@ public class PlayerSpawner : MonoBehaviour
 
         // make the gnome a child of the player spawner
         newGnome.transform.parent = transform;
+
+        // add the player to the list
+        players.Add(newGnome);
     }
 
     // Update is called once per frame
