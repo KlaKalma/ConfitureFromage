@@ -455,6 +455,7 @@ MonoBehaviour:
   plantPrefabs:
   - {fileID: 4993789991122030352, guid: 02ac4c7359edcbf4e99c2bbb5e4eee83, type: 3}
   - {fileID: 4993789991122030352, guid: 70de31633ef735b46a8ded7f1c352629, type: 3}
+  - {fileID: 4993789991122030352, guid: 91359bba91addd140a262ba68713407e, type: 3}
   gridManager: {fileID: 1579742321}
 --- !u!4 &1232532366
 Transform:
@@ -566,7 +567,7 @@ GameObject:
   - component: {fileID: 1579742322}
   - component: {fileID: 1579742321}
   m_Layer: 0
-  m_Name: GridManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

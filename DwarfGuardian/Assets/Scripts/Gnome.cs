@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gnome : MonoBehaviour
 {
@@ -9,21 +10,34 @@ public class Gnome : MonoBehaviour
 
     public float TargetMargin = 0.5f;
 
+    // dying image
+    public Sprite deathImage;
+    public float fadeDuration = 1f; // Duration of the fade in seconds
+    public float upDistance = 2f; // Distance to move the player up when they die
+    public int health = 100; // Gnome's health
+
+    public bool isDead = false; // Is the gnome dead?
+
+    private SpriteRenderer spriteRenderer; // The SpriteRenderer component
+
+
     private PlantManager plantManager;
     private GameObject GnomeTarget;
 
     Rigidbody2D rb; // Reference to the player's Rigidbody component
 
-    protected virtual void Initiate()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody component attached to the player GameObject
         plantManager = FindObjectOfType<PlantManager>();
         GnomeTarget = GameObject.Find("GnomeTarget");
+
     }
 
-    protected virtual void Move()
+    protected virtual void Update()
     {
-        // Calculate movement direction, it had to go to position - 000
+        // Get the SpriteRenderer component
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         // calculate the target, its the closest plant to the player or the 
         Vector2 target = new Vector2(0, 0);
@@ -46,7 +60,8 @@ public class Gnome : MonoBehaviour
         // Move the player
 
         // if the player is not too close to the target, then move the player
-        if (distance > TargetMargin){
+
+        if (distance > TargetMargin && !isDead){
             rb.velocity = movement * moveSpeed;
         }
         else{
@@ -79,9 +94,42 @@ public class Gnome : MonoBehaviour
         // Delete in the list of the player spawner
         FindObjectOfType<PlayerSpawner>().players.Remove(gameObject);
 
-        // the gnome gets attacked and the player is destroyed
-        
-        Destroy(gameObject);
 
+        // stop the animmation of the gnome
+        GetComponent<Animator>().enabled = false;
+
+        // Set the gnome as dead
+        isDead = true;
+
+        // Change the sprite to the death image
+        spriteRenderer.sprite = deathImage;
+
+        // Start the fade out coroutine
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        // Calculate the rate of fading
+        float fadeRate = 1f / fadeDuration;
+
+        // While the sprite is not fully transparent
+        while (spriteRenderer.color.a > 0)
+        {
+            // Decrease the alpha value of the sprite
+            float newAlpha = spriteRenderer.color.a - fadeRate * 2 / 3 * Time.deltaTime;
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, newAlpha);
+
+            // move the player up with a sin function so the hat goes left and right with sin and up constant
+            transform.position += new Vector3(Mathf.Sin(Time.time * 8) * upDistance * Time.deltaTime / 3, upDistance * Time.deltaTime, 0);
+            
+            
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Destroy the gnome
+        Destroy(gameObject);
     }
 }

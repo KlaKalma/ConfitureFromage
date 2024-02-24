@@ -123,6 +123,9 @@ MonoBehaviour:
   moveSpeed: 0.8
   MaxX: 15
   TargetMargin: 0.5
+  deathImage: {fileID: 21300000, guid: ee3c90c598c945c4ea467c15dfff2f87, type: 3}
+  fadeDuration: 1
+  health: 100
 --- !u!50 &8402645728393231680
 Rigidbody2D:
   serializedVersion: 4
