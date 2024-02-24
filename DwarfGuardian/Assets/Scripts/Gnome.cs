@@ -14,17 +14,15 @@ public class Gnome : MonoBehaviour
 
     Rigidbody2D rb; // Reference to the player's Rigidbody component
 
-    public void Initiate()
+    protected virtual void Initiate()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody component attached to the player GameObject
         plantManager = FindObjectOfType<PlantManager>();
         GnomeTarget = GameObject.Find("GnomeTarget");
     }
 
-    public void Move()
+    protected virtual void Move()
     {
-        
-
         // Calculate movement direction, it had to go to position - 000
 
         // calculate the target, its the closest plant to the player or the 
@@ -74,6 +72,16 @@ public class Gnome : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+    }
+
+    public virtual void TakeDamage()
+    {
+        // Delete in the list of the player spawner
+        FindObjectOfType<PlayerSpawner>().players.Remove(gameObject);
+
+        // the gnome gets attacked and the player is destroyed
+        
+        Destroy(gameObject);
 
     }
 }

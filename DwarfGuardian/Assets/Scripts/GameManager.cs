@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
-    public int _width, _height;
+
+    [SerializeField] public int _width, _height;
+
     public float _tileSize;
     public int thunes;
     [SerializeField] private Tile _tilePrefab;
@@ -44,7 +46,7 @@ public class GridManager : MonoBehaviour {
         }
  
     // _cam.transform.position = new Vector3(_width* _tileSize/2 -0.5f, _height* _tileSize / 2 - 0.5f,-10);
-    _cam.transform.position = new Vector3( 0, 0, -10);
+    // _cam.transform.position = new Vector3( 0, 0, -10);
     
     }
  

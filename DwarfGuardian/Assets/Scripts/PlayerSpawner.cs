@@ -6,7 +6,7 @@ public class PlayerSpawner : MonoBehaviour
 {
 
     // grid manager reference
-    public GridManager gridManager;
+    public GameManager gridManager;
     // List of gnomes
     public List<GameObject> gnomes = new List<GameObject>();
 
@@ -16,9 +16,8 @@ public class PlayerSpawner : MonoBehaviour
 
     private float _width, _height;
 
-
-    // Start is called before the first frame update
-    void Start()
+    // before the start
+    private void Awake()
     {
         // get the width and height inside of the grid manager
         _width = gridManager._width;
@@ -32,7 +31,15 @@ public class PlayerSpawner : MonoBehaviour
             SpawnPlayer();
         }
         
+        // Debug.Log("Players: " + players.Count);
+    }
 
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     void SpawnPlayer()
