@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        var moveHorizontal = 5;
-        var moveVertical = 0;
+        
 
-        // Calculate movement direction
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        // Calculate movement direction, it had to go to position - 000
+        
+        Vector2 movement = - rb.position + new Vector2(0, 0);
 
         // Normalize movement vector to ensure consistent speed in all directions
         movement.Normalize();
@@ -38,5 +38,16 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = new Vector3(MaxX, transform.position.y, transform.position.z);
         }
+
+        // if the movement is to the left, then flip the player sprite
+        if (movement.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (movement.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
     }
 }
