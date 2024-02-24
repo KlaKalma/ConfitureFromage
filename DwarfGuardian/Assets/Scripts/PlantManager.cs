@@ -28,7 +28,9 @@ public class PlantManager : MonoBehaviour
         
         // spawn a single plant at the start of the game, in the bottom part of the playing field
 
-        SpawnPlant();
+        // spawn 3 plants at the start of the game
+        for (int i = 0; i < 3; i++)
+            SpawnPlant();
 
     }
 
@@ -49,6 +51,11 @@ public class PlantManager : MonoBehaviour
 
         // spawn the plant
         var spawnedPlant = Instantiate(plantPrefabs[randomPlant], spawnPosition, Quaternion.identity);
+
+        // randomly flip the plant
+        if (Random.Range(0, 2) == 1)
+            spawnedPlant.transform.localScale = new Vector3(-spawnedPlant.transform.localScale.x, spawnedPlant.transform.localScale.y, spawnedPlant.transform.localScale.z);
+
         plantsOnField.Add(spawnedPlant);
 
         // make the parent of the plant the field

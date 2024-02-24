@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4993789991122030358}
   - component: {fileID: 4993789991122030353}
-  - component: {fileID: 8406919001953693939}
+  - component: {fileID: -2583459233663053452}
   m_Layer: 0
-  m_Name: Ronce
+  m_Name: Saule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: 210b31ee9659c4f46b13fb2a1ef8baec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac812d04f9bcdcd459acf3b5c2635746, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8406919001953693939
+--- !u!114 &-2583459233663053452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4993789991122030352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24e5810fb3d8916499d387c0209c7a27, type: 3}
+  m_Script: {fileID: 11500000, guid: 649514161d1dbe448b5a3671d0484fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
-  timeToAttack: 2
+  radius: 2
+  timeToAttack: 3
