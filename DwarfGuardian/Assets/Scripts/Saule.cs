@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Saule : Plant
 {
-    public int price = 4;
+    public override int price { get; set; } = 40;
     public float radius = 5;
     public float timeToAttack = 0.5f;
     private float timeOfLastAttack = 0;

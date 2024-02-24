@@ -7,6 +7,8 @@ public class Plant : MonoBehaviour
 
     private PlayerSpawner playerSpawner;
 
+    public virtual int price { get; set; } = 10;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
