@@ -44,7 +44,7 @@ public class GridManager : MonoBehaviour {
         }
  
     // _cam.transform.position = new Vector3(_width* _tileSize/2 -0.5f, _height* _tileSize / 2 - 0.5f,-10);
-    _cam.transform.position = new Vector3( 0, 0, -10);
+    // _cam.transform.position = new Vector3( 0, 0, -10);
     
     }
  
