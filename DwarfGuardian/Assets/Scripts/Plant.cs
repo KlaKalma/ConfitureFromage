@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public interface IPrice
+{
+    int price { get; set; }
+}
 public class Plant : MonoBehaviour
 {
 
     private PlayerSpawner playerSpawner;
 
-    public virtual int price { get; set; } = 10;
 
     // Start is called before the first frame update
     protected virtual void Start()

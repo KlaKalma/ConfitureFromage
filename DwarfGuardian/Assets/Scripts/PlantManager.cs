@@ -72,7 +72,7 @@ public class PlantManager : MonoBehaviour
     public int Get_price(int item)
     {
         // return the price of the plantprefab[item]
-        return 10;
+        return plantPrefabs[item].GetComponent<IPrice>().price;
 
     }
 
