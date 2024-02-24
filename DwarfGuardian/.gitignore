@@ -76,3 +76,4 @@ crashlytics-build.properties
 # ProjectVersion
 DwarfGuardian/ProjectSettings/ProjectVersion.txt
 **/ProjectVersion.txt
+DwarfGuardian/ProjectSettings/boot.config
