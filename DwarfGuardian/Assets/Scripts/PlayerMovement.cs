@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = movement * moveSpeed;
 
         // if the player is further then the limit MaxX, then set the player position to the - limit
-        if(transform.position.x > MaxX)
+        if(transform.position.x >= MaxX - 1)
         {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
         }
