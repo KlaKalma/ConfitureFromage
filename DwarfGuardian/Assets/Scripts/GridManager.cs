@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour {
-    public int _width, _height;
-    [SerializeField] private float _tileSize;
+
+    [SerializeField] private int _width, _height;
+    public float _tileSize;
  
     [SerializeField] private Tile _tilePrefab;
  
@@ -27,7 +28,7 @@ public class GridManager : MonoBehaviour {
             tileParent = new GameObject("Tiles");
         }
 
-        //_tiles = new Dictionary<Vector2, Tile>();
+        _tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < _width; x++) {
             for (int y = 0; y < _height; y++) {
                 
@@ -38,7 +39,7 @@ public class GridManager : MonoBehaviour {
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
                 spawnedTile.Inita(isOffset);
  
-                //_tiles[new Vector2(x, y)] = spawnedTile;
+                _tiles[new Vector2(x, y)] = spawnedTile;
             }
         }
  
