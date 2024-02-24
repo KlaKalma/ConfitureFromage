@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Gnome : MonoBehaviour
 {
     public float moveSpeed = 5f; // Speed at which the player moves
     public float MaxX = 15;
@@ -15,14 +14,14 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb; // Reference to the player's Rigidbody component
 
-    void Start()
+    public void Initiate()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody component attached to the player GameObject
         plantManager = FindObjectOfType<PlantManager>();
         GnomeTarget = GameObject.Find("GnomeTarget");
     }
 
-    void Update()
+    public void Move()
     {
         
 

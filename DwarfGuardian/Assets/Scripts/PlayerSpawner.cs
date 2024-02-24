@@ -7,7 +7,8 @@ public class PlayerSpawner : MonoBehaviour
 
     // grid manager reference
     public GridManager gridManager;
-    public GameObject gnomePrefab;
+    // List of gnomes
+    public List<GameObject> gnomes = new List<GameObject>();
 
     // list of all the players not modifiable
     [System.NonSerialized]
@@ -56,6 +57,9 @@ public class PlayerSpawner : MonoBehaviour
         {
             spawnPosition = new Vector3(_width / 2, Random.Range(-_height / 2, 0), 0);
         }
+
+
+        GameObject gnomePrefab = gnomes[Random.Range(0, gnomes.Count)];
 
 
         // spawn the player

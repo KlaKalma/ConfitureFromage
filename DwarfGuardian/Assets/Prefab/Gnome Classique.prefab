@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 987364409132969019}
   - component: {fileID: 987364409132969016}
   m_Layer: 0
-  m_Name: Gnome_0
+  m_Name: Gnome Classique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,8 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e981b39078e7b43abda3d2b64825cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.5
   MaxX: 15
+  TargetMargin: 0.5
 --- !u!50 &987364409132969016
 Rigidbody2D:
   serializedVersion: 4
