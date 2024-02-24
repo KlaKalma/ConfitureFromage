@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopScript : MonoBehaviour
 {
     // include gride manager game object in the script
-    public GameObject GridManager;
+    public GameObject GameManager;
     // include camera game object in the script
     public Camera Camera;
     public int number_of_items;
@@ -45,14 +45,14 @@ public class ShopScript : MonoBehaviour
             {
                 if(in_shop)
                 {
-                    int thunes = GridManager.GetComponent<GridManager>().thunes;
+                    int thunes = GameManager.GetComponent<GameManager>().thunes;
                     int item = Get_item();
 
                     if (_prices.TryGetValue(item, out var price) && thunes >= price)
                     {
                         // spawn item
 
-                        GridManager.GetComponent<GridManager>().thunes -= price;
+                        GameManager.GetComponent<GameManager>().thunes -= price;
                     }
                     else
                     {

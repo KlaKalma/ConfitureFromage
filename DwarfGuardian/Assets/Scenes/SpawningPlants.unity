@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 1579742322}
   - component: {fileID: 1579742321}
   m_Layer: 0
-  m_Name: GridManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 15
   _height: 10
-  _tileSize: 0
+  _tileSize: 1
+  thunes: 0
   _tilePrefab: {fileID: 2886194496221945295, guid: 0ea1dae4f5c5043e0ac0b8ad29977cf2, type: 3}
   _cam: {fileID: 1207999108}
 --- !u!4 &1579742322
@@ -377,8 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703383994c1df4fb5adb4b949db9fe53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridManager: {fileID: 1579742320}
+  GameManager: {fileID: 0}
   Camera: {fileID: 1207999107}
+  number_of_items: 7
 --- !u!212 &1856143599
 SpriteRenderer:
   m_ObjectHideFlags: 0
