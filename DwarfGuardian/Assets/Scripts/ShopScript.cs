@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -41,7 +42,7 @@ public class ShopScript : MonoBehaviour
             // Debug.Log(i);
             // Debug.Log(plantManager.Get_price(i));
             _prices[i] = plantManager.Get_price(i);
-            Debug.Log(_prices[i]); 
+            // Debug.Log(_prices[i]); 
         } 
     }
 
@@ -53,14 +54,14 @@ public class ShopScript : MonoBehaviour
         {
             transform.position = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-            tile_pos_x = Mathf.Floor(transform.position.x+0.5f);
-            tile_pos_y = Mathf.Floor(transform.position.y+0.5f);
-            tile_pos = new Vector3(tile_pos_x, tile_pos_y, 0);
+            
             // if sprite renderer inactive
             if (GetComponent<SpriteRenderer>().enabled == false)
             {   
                 
-                
+                tile_pos_x = Mathf.Floor(transform.position.x+0.5f);
+                tile_pos_y = Mathf.Floor(transform.position.y+0.5f);
+                tile_pos = new Vector3(tile_pos_x, tile_pos_y, 0);
                 transform.position = new Vector3(tile_pos_x, tile_pos_y, -1);
                 GetComponent<SpriteRenderer>().enabled = true;
                 GetComponent<Collider2D>().enabled = true;
@@ -74,6 +75,10 @@ public class ShopScript : MonoBehaviour
                     // Debug.Log(item);
                     if (_prices.TryGetValue(item, out var price) && Money >= _prices[item])
                     {
+                        tile_pos_x = Mathf.Floor(transform.position.x+0.5f);
+                        tile_pos_y = Mathf.Floor(transform.position.y+0.5f);
+                        tile_pos = new Vector3(tile_pos_x, tile_pos_y, 0);
+                        
                         GameObject spawnedPlant = plantManager.SpawnPlant(item, tile_pos);
                         gameManager.addMoney(-price);
                     }
@@ -102,7 +107,14 @@ public class ShopScript : MonoBehaviour
     int Get_item()
     {
         // give a int depending on the sprite's circular fraction devided in number_of_items
-        int item = number_of_items/2 + 1 + (int) Mathf.Floor(Mathf.Atan2(transform.position.y-tile_pos_y, transform.position.x-tile_pos_x) * Mathf.Rad2Deg / angle);
+        float mouseAngle = Mathf.Atan2(transform.position.y-tile_pos_y, transform.position.x-tile_pos_x);
+        Debug.Log(transform.position + " " + tile_pos + " " + mouseAngle * Mathf.Rad2Deg);
+        // make it between 0 and 360 with modulo
+        mouseAngle = (mouseAngle + 2*Mathf.PI) % (2*Mathf.PI);
+
+        int item = (int) Mathf.Floor(mouseAngle * Mathf.Rad2Deg / angle);
+        Debug.Log("Item: " + item + " Angle: " + mouseAngle * Mathf.Rad2Deg);
+
         return item;
     }
 }
