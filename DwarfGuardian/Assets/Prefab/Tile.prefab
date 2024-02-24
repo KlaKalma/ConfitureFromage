@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fbe6299530c4611b625eedcb06b0a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseColor: {r: 0.5115073, g: 0.9528302, b: 0.33618724, a: 1}
-  _offsetColor: {r: 0.52456397, g: 0.7924528, b: 0.36258456, a: 1}
+  _baseColor: {r: 0.4932763, g: 0.7075472, b: 0.40984336, a: 1}
+  _offsetColor: {r: 0.40869147, g: 0.6320754, b: 0.27071908, a: 1}
   _renderer: {fileID: 9062580734471039076}
   _highlight: {fileID: 1036947096144638725}
 --- !u!61 &2308208858182096113
