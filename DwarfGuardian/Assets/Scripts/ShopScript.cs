@@ -27,12 +27,13 @@ public class ShopScript : MonoBehaviour
 
         _prices = new Dictionary<int, int>();
         Debug.Log("Number of items: " + number_of_items);
+        // iterate over the items of the plant manager and get the price of each item
         for(int i = 0; i < number_of_items; i++)
         {   
             Debug.Log(i);
             // Debug.Log(plantManager.Get_price(i));
             _prices[i] = plantManager.Get_price(i);
-            // Debug.Log(_prices[i]); 
+            Debug.Log(_prices[i]); 
         } 
     }
 
@@ -66,9 +67,11 @@ public class ShopScript : MonoBehaviour
                         GameObject spawnedPlant = plantManager.SpawnPlant(item);
                         gameManager.GetComponent<GameManager>().thunes -= price;
                     }
-                    else
+                    else if (thunes < _prices[item])
                     {
-                        Debug.Log("Object not found or not enough money");
+                        Debug.Log("Not enough money");
+                    } else {
+                        Debug.Log("Object not found");
                     }
                     in_shop = false;
                 }
