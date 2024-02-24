@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
-    [SerializeField] private int _width, _height;
+    public int _width, _height;
     public float _tileSize;
- 
+    public int thunes;
     [SerializeField] private Tile _tilePrefab;
  
     [SerializeField] private Transform _cam;
