@@ -22,15 +22,6 @@ public class PlayerSpawner : MonoBehaviour
         // get the width and height inside of the grid manager
         _width = gridManager._width;
         _height = gridManager._height;
-
-        // get a random number form 2 to 5
-        int random = Random.Range(6, 20);
-
-        for (int i = 0; i < random; i++)
-        {
-            SpawnPlayer();
-        }
-        
         // Debug.Log("Players: " + players.Count);
     }
 
@@ -42,6 +33,16 @@ public class PlayerSpawner : MonoBehaviour
         
     }
 
+    public void SpawnPlayers(){
+        // get a random number form 2 to 5
+        int random = Random.Range(6, 20);
+
+        for (int i = 0; i < random; i++)
+        {
+            SpawnPlayer();
+        }
+    }
+    
     void SpawnPlayer()
     {
         // get a random number from 1 to 3
