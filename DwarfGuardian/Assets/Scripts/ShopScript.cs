@@ -50,12 +50,14 @@ public class ShopScript : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             transform.position = _camera.ScreenToWorldPoint(Input.mousePosition);
+
+            tile_pos_x = Mathf.Floor(transform.position.x+0.5f);
+            tile_pos_y = Mathf.Floor(transform.position.y+0.5f);
+            tile_pos = new Vector3(tile_pos_x, tile_pos_y, 0);
             // if sprite renderer inactive
             if (GetComponent<SpriteRenderer>().enabled == false)
             {   
-                tile_pos_x = Mathf.Floor(transform.position.x+0.5f);
-                tile_pos_y = Mathf.Floor(transform.position.y+0.5f);
-                tile_pos = new Vector3(tile_pos_x, tile_pos_y, 0);
+                
                 
                 transform.position = new Vector3(tile_pos_x, tile_pos_y, -1);
                 GetComponent<SpriteRenderer>().enabled = true;
@@ -70,7 +72,7 @@ public class ShopScript : MonoBehaviour
                     // Debug.Log(item);
                     if (_prices.TryGetValue(item, out var price) && Money >= _prices[item])
                     {
-                        GameObject spawnedPlant = plantManager.SpawnPlant(item);
+                        GameObject spawnedPlant = plantManager.SpawnPlant(item, tile_pos);
                         gameManager.addMoney(-price);
                     }
                     else if (Money < _prices[item])
