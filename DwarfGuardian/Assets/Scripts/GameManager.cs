@@ -14,15 +14,13 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Transform _cam;
  
     private Dictionary<Vector2, Tile> _tiles;
-
     public MoneyCount MoneyCountText;
     public int Money = 0;
  
     void Start() {
         // set the width and height of the grid depending of the tile prefab size
-       _tileSize = _tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x;
-
-
+        _tileSize = _tilePrefab.GetComponent<SpriteRenderer>().bounds.size.x;
+        
         GenerateGrid();
         MoneyCountText.UpdateText(Money.ToString());
     }

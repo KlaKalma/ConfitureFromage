@@ -46,11 +46,8 @@ namespace GameState {
             {
                 Debug.Log("Day");
 
-                // Kill them Enemies
-
-                while (_playerSpawner.players.Count > 0)
-                {   
-                    _playerSpawner.players[0].GetComponent<Gnome>().TakeDamage();                }
+                // Switch them Enemies
+                _playerSpawner.Runaway();
 
                 _isDayTime = !_isDayTime;
                 _day++;

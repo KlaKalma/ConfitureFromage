@@ -7,6 +7,8 @@ public class PlayerSpawner : MonoBehaviour
 
     // grid manager reference
     public GameManager gridManager;
+    private bool _Runaway;
+
     // List of gnomes
     public List<GameObject> gnomes = new List<GameObject>();
 
@@ -30,7 +32,7 @@ public class PlayerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _Runaway = false;
     }
 
     public void SpawnPlayers(){
@@ -80,9 +82,26 @@ public class PlayerSpawner : MonoBehaviour
         players.Add(newGnome);
     }
 
+    public void Runaway(){
+        _Runaway = true; 
+        foreach (var enemy in players)
+        {
+            enemy.GetComponent<Gnome>().moveSpeed *= -1f;
+        }
+    }
+
     // Update is called once per frame
-    void Update()
-    {
-        
+
+    void Update(){
+        if (_Runaway){
+            foreach (var enemy in players)
+            {   
+                var gn = enemy.GetComponent<Gnome>();
+                if (gn.transform.position.x > _width/2 || gn.transform.position.x < -_width/2 || gn.transform.position.y > _height/2 || gn.transform.position.y < -_height/2)
+                {
+                    gn.TakeDamage(true);
+                }
+            }
+        }
     }
 }
