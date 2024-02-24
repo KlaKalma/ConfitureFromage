@@ -7,7 +7,7 @@ public class GnomeInsecte : Gnome
 {
 
     // non serialized
-    public override int MoneyOnDeath { get; set; } = 20;
+    // public override int MoneyOnDeath { get; set; } = 20;
 
     protected override void Start(){
         // do the initialisation of THe gnome class inherited
