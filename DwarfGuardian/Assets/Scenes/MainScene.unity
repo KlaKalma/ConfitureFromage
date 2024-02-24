@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _daylength: 0.1
-  _nightlength: 0.2
+  _nightlength: 0.05
   _playerSpawner: {fileID: 454747067}
 --- !u!4 &2102741033
 Transform:

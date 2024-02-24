@@ -111,9 +111,12 @@ public class Gnome : MonoBehaviour
 
             // Change the sprite to the death image
             spriteRenderer.sprite = deathImage;
+
+            // Start the fade out coroutine
+            StartCoroutine(FadeOut());
+        } else {
+            Destroy(gameObject);
         }
-        // Start the fade out coroutine
-        StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeOut()

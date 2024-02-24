@@ -47,10 +47,7 @@ namespace GameState {
                 Debug.Log("Day");
 
                 // Switch them Enemies
-                foreach (var gnome in _playerSpawner.gnomes)
-                {   
-                    _playerSpawner.players[0].GetComponent<Gnome>().moveSpeed *= -1f;
-                }
+                _playerSpawner.Runaway();
 
                 _isDayTime = !_isDayTime;
                 _day++;
