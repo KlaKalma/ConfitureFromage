@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ronce : Plant
 {
+    public int price = 3;
     public float radius = 5;
     public float timeToAttack = 0.5f;
     private float timeOfLastAttack = 0;
