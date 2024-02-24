@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993789991122030358}
   - component: {fileID: 4993789991122030353}
-  - component: {fileID: -2583459233663053452}
+  - component: {fileID: 8687985074192060140}
   m_Layer: 0
   m_Name: Piment
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2583459233663053452
+--- !u!114 &8687985074192060140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4993789991122030352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649514161d1dbe448b5a3671d0484fef, type: 3}
+  m_Script: {fileID: 11500000, guid: f2a97556a06d8f04bbff2e77c92a5513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
-  timeToAttack: 1
+  timeToAttack: 0.5

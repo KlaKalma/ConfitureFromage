@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Transform _cam;
  
     private Dictionary<Vector2, Tile> _tiles;
+
+    public MoneyCount MoneyCountText;
+    public int Money = 0;
  
     void Start() {
         // set the width and height of the grid depending of the tile prefab size
@@ -19,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
 
         GenerateGrid();
+        MoneyCountText.UpdateText(Money.ToString());
     }
  
     void GenerateGrid() {
@@ -47,6 +51,14 @@ public class GameManager : MonoBehaviour {
     // _cam.transform.position = new Vector3( 0, 0, -10);
     
     }
+
+    public int addMoney(int money)
+    {
+        Money += money;
+        MoneyCountText.UpdateText(Money.ToString());
+        return Money;
+    }
+
  
     public Tile GetTileAtPosition(Vector2 pos) {
         if (_tiles.TryGetValue(pos, out var tile)) return tile;

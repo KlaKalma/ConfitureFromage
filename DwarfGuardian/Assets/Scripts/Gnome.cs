@@ -14,12 +14,16 @@ public class Gnome : MonoBehaviour
     public Sprite deathImage;
     public float fadeDuration = 1f; // Duration of the fade in seconds
     public float upDistance = 2f; // Distance to move the player up when they die
-    public int health = 100; // Gnome's health
+    // public int health = 100; // Gnome's health
+
+    
+    public virtual int MoneyOnDeath { get; set; } = 10; // Money given to the player when the gnome dies
 
     public bool isDead = false; // Is the gnome dead?
 
     private SpriteRenderer spriteRenderer; // The SpriteRenderer component
 
+    private GameManager gameManager;
 
     private PlantManager plantManager;
     private GameObject GnomeTarget;
@@ -30,6 +34,7 @@ public class Gnome : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody component attached to the player GameObject
         plantManager = FindObjectOfType<PlantManager>();
+        gameManager = FindObjectOfType<GameManager>();
         GnomeTarget = GameObject.Find("GnomeTarget");
 
     }
@@ -100,6 +105,9 @@ public class Gnome : MonoBehaviour
 
         // Set the gnome as dead
         isDead = true;
+
+        // Add some money 
+        gameManager.addMoney(MoneyOnDeath);
 
         // Change the sprite to the death image
         spriteRenderer.sprite = deathImage;
