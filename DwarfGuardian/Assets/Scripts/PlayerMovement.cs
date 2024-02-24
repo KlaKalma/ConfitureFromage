@@ -29,15 +29,15 @@ public class PlayerMovement : MonoBehaviour
         // Move the player
         rb.velocity = movement * moveSpeed;
 
-        // if the player is further then the limit MaxX, then set the player position to the - limit
-        if(transform.position.x >= MaxX - 1)
-        {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
-        }
-        else if(transform.position.x < 0)
-        {
-            transform.position = new Vector3(MaxX, transform.position.y, transform.position.z);
-        }
+        // // if the player is further then the limit MaxX, then set the player position to the - limit
+        // if(transform.position.x >= MaxX - 1)
+        // {
+        //     transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        // }
+        // else if(transform.position.x < 0)
+        // {
+        //     transform.position = new Vector3(MaxX, transform.position.y, transform.position.z);
+        // }
 
         // if the movement is to the left, then flip the player sprite
         if (movement.x < 0)

@@ -20,7 +20,7 @@ public class PlayerSpawner : MonoBehaviour
         _height = gridManager._height;
 
         // get a random number form 2 to 5
-        int random = Random.Range(2, 6);
+        int random = Random.Range(6, 20);
 
         for (int i = 0; i < random; i++)
         {
@@ -33,14 +33,16 @@ public class PlayerSpawner : MonoBehaviour
     void SpawnPlayer()
     {
         // get a random number from 1 to 3
-        int randomSide = 1;
+        // int randomSide = 1;
+        int randomSide = Random.Range(1, 4);
 
 
         // 1 = left 2 = bottom 3 = right
         Vector3 spawnPosition = Vector3.zero;
+
         if (randomSide == 1) // left
         {
-            spawnPosition = new Vector3(- _width / 2, Random.Range(-_height / 2, _height / 2), 0);
+            spawnPosition = new Vector3(- _width / 2, Random.Range(-_height / 2, 0), 0);
         }
         else if (randomSide == 2) // bottom
         {
@@ -48,8 +50,9 @@ public class PlayerSpawner : MonoBehaviour
         }
         else if (randomSide == 3) // right
         {
-            spawnPosition = new Vector3(_width / 2, Random.Range(-_height / 2, _height / 2), 0);
+            spawnPosition = new Vector3(_width / 2, Random.Range(-_height / 2, 0), 0);
         }
+
 
         // spawn the player
         GameObject newGnome = Instantiate(gnomePrefab, spawnPosition, Quaternion.identity);
